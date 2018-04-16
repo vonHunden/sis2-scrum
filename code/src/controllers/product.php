@@ -25,7 +25,12 @@ class Product extends Controller
     }
     public function edit()
     {
-        echo 'edit';
+        $prod = $this->model('User');
+        //print_r($user);
+        $prod->name = $idProd;
+        $prod->price = 20;
+        $prod->stock = 100;
+        $this->view('product/edit_product', ['product' => $prod]);
     }
     public function delete()
     {
