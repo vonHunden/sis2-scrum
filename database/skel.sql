@@ -32,8 +32,8 @@ CREATE TABLE product
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
     id_category INTEGER UNSIGNED,
     name VARCHAR(50),
-    price
-    stock
+    price INTEGER UNSIGNED,
+    stock INTEGER UNSIGNED DEFAULT 0
 );
 
 -- Puede ser type o category

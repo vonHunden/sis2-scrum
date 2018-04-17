@@ -1,5 +1,5 @@
 <html>
-    <h3>Editar producto <?php echo $data['product']->name; ?></h3>
+    <h3>EDITAR PRODUCTO</h3>
     <form>
         <p>Nombre de Producto</p>
         <input type="string" value=<?php echo $data['product']->name; ?>>

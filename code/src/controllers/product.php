@@ -4,14 +4,9 @@ class Product extends Controller
 {
     public function index()
     {
-        //echo 'Product index';
-        $user = $this->model('User');
-        //print_r($user);
-        $user->name = 'Joe';
-        $user->lastname = 'Doe';
-        $user->username = 'jondeo';
-        //print_r($user);
-        $this->view('product/index', ['user' => $user]);
+        $products = $this->model('ProductModel');
+        $products = $products->products();
+        $this->view('product/index', ['product' => $products]);
     }
 
     public function add()
@@ -19,18 +14,35 @@ class Product extends Controller
         echo 'add';
     }
 
-    public function update()
+    public function update($id=0, $product_name='')
     {
-        echo 'update';
+        if ($id != 0 && $product_name != '') {
+            $product = $this->model('CategoryModel'); 
+            $product->id = $id; 
+            $product->product = $product_name; 
+            if ($product->update()) {
+                echo "actualizado correctamente";
+            }
+        } else {
+            echo "ERROR";
+        }
     }
-    public function edit()
+    public function edit($product_id=0)
     {
-        $prod = $this->model('User');
+        if ($product_id != 0) {
+            $product = $this->model('ProductModel'); 
+            $product->id = $product_id;
+            $product = $product->edit();
+            print_r($product);
+            $this->view('product/edit', ['product' => $product]);
+        } else {
+            echo "ERROR category_id no brindado";
+        }
+        //$prod = $this->model('User');
         //print_r($user);
-        $prod->name = $idProd;
-        $prod->price = 20;
-        $prod->stock = 100;
-        $this->view('product/edit_product', ['product' => $prod]);
+        //$prod->name = $idProd;
+        //$prod->price = 20;
+        //$prod->stock = 100;
     }
     public function delete()
     {
