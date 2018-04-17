@@ -4,11 +4,31 @@ class Category extends Controller
 {
     public function index()
     {
-        echo 'Categoria List';
+        $this->view('category/index');
+    }
+
+    public function template($view = '', $param = 0)
+    {
+        switch ($view) {
+            case 'add':
+                $this->view('category/'.$view);
+                break;
+            case 'edit':
+                $cat = $this->edit($param);
+                $this->view(
+                    'category/'.$view,
+                    ['category' => $cat]
+                );
+                break;
+            default:
+                $this->view('category/error');
+                break;
+        }
     }
     
     public function add($category_name = '')
     {
+        //$category_name = $_POST['category'];
         if (!empty($category_name)) {
             $category = $this->model('CategoryModel'); 
             $category->category = $category_name;
