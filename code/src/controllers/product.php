@@ -53,7 +53,6 @@ class Product extends Controller
             $product = $this->model('ProductModel'); 
             $product->id = $product_id;
             $product = $product->edit();
-            print_r($product);
             $this->view('product/edit', ['product' => $product]);
         } else {
             echo "ERROR category_id no brindado";
@@ -64,8 +63,15 @@ class Product extends Controller
         //$prod->price = 20;
         //$prod->stock = 100;
     }
-    public function delete()
+    public function delete($product_id=0)
     {
-        echo 'delete';
+        if ($product_id != 0) {
+            $product = $this->model('ProductModel'); 
+            $product->id = $product_id;
+            $product = $product->delete();
+            $this->view('product/delete', ['product' => $product_id]);
+        } else {
+            echo "ERROR category_id no brindado";
+        }
     }
 }

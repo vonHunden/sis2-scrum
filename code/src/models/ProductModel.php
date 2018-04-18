@@ -47,6 +47,13 @@ class ProductModel extends Model
 
     public function delete()
     {
+         $sql = 'DELETE FROM '.$this->table.' WHERE id = ?';
+        try {
+            $this->db->prepare($sql)->execute([$this->id]);
+            return true;
+        } catch (PDOException $e) {
+            throw $e;
+        }
     }
 
     public function edit()
