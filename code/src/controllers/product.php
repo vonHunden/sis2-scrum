@@ -9,9 +9,24 @@ class Product extends Controller
         $this->view('product/index', ['product' => $products]);
     }
 
-    public function add()
+    public function add($idCategory=0, $name='', $price=0, $stock=0)
     {
-        echo 'add';
+        if ($idCategory != 0 && $name != '' && $price != 0 && $stock != 0) {
+            $product = $this->model('ProductModel'); 
+            $product->idCategory = $idCategory; 
+            $product->name = $name; 
+            $product->price = $price; 
+            $product->stock = $stock; 
+            if ($product->add()) {
+                echo "creado correctamente";
+            }
+        } else {
+            if ($idCategory == 0 && $name == '' && $price == 0 && $stock == 0) {
+                $this->view('product/add');
+            }
+            else
+                echo "ERROR al crear";
+        }   
     }
 
     public function update($id=0, $product_name='')
@@ -19,7 +34,7 @@ class Product extends Controller
         if ($id != 0 && $product_name != '') {
             $product = $this->model('CategoryModel'); 
             $product->id = $id; 
-            $product->product = $product_name; 
+            $product->name = $product_name; 
             if ($product->update()) {
                 echo "actualizado correctamente";
             }

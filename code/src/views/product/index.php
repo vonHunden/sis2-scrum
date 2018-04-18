@@ -25,6 +25,7 @@
             <input type="submit" value="Eliminar"></td>
         </tr>
             <?php }?>
+            <td><a href="add" role="button">Crear</a>
     </tbody>
     </table>
 </html>

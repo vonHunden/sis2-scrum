@@ -5,6 +5,7 @@ class ProductModel extends Model
     private $table = 'product';
     public $id;
     public $idCategory;
+    public $name;
     public $price;
     public $stock;
 
@@ -24,13 +25,20 @@ class ProductModel extends Model
 
     public function add()
     {
+        $sql = 'INSERT INTO '.$this->table.'(id_category, name, price, stock) VALUES (?, ?, ?, ?)';
+        try {
+            $this->db->prepare($sql)->execute([$this->idCategory, $this->name, $this->price, $this->stock]);
+            return true;
+        } catch (PDOException $e) {
+            throw $e;
+        }
     }
 
     public function update()
     {
         $sql = 'UPDATE '.$this->table.' SET name = ? WHERE id = ?';
         try {
-            $this->db->prepare($sql)->execute([$this->product, $this->id]);
+            $this->db->prepare($sql)->execute([$this->name, $this->id]);
             return true;
         } catch (PDOException $e) {
             throw $e;
