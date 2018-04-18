@@ -12,7 +12,8 @@
         </tr>
         </thread>
         <tbody>
-            <?php 
+            <?php
+
             foreach($data['product'] as $rows) {?>
         <tr>
             <td><?php echo $rows->id; ?></td>
@@ -20,7 +21,7 @@
             <td><?php echo $rows->id_category; ?></td>
             <td><?php echo $rows->price; ?></td>
             <td><?php echo $rows->stock; ?></td>
-            <td><input type="submit" value="Editar">
+            <td><a href="edit/<?php echo $rows->id ?>" role="button">Editar</a>
             <input type="submit" value="Eliminar"></td>
         </tr>
             <?php }?>
