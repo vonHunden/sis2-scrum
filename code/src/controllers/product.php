@@ -11,22 +11,27 @@ class Product extends Controller
 
     public function add($idCategory=0, $name='', $price=0, $stock=0)
     {
-        if ($idCategory != 0 && $name != '' && $price != 0 && $stock != 0) {
-            $product = $this->model('ProductModel'); 
-            $product->idCategory = $idCategory; 
-            $product->name = $name; 
-            $product->price = $price; 
-            $product->stock = $stock; 
-            if ($product->add()) {
-                echo "creado correctamente";
-            }
-        } else {
-            if ($idCategory == 0 && $name == '' && $price == 0 && $stock == 0) {
-                $this->view('product/add');
-            }
-            else
-                echo "ERROR al crear";
-        }   
+        if(sizeof($_POST))
+        {
+            if ($_POST['category'] != '' && $_POST['name'] != '' && $_POST['price'] != '' && $_POST['stock'] != '') {
+                $product = $this->model('ProductModel'); 
+                $product->idCategory = (int)$_POST['category']; 
+                $product->name = $_POST['name']; 
+                $product->price = (int)$_POST['price']; 
+                $product->stock = (int)$_POST['stock']; 
+                if ($product->add()) {
+                    echo "creado correctamente";
+                }
+            } else {
+                if ($_POST['category'] == '' && $_POST['name'] == '' && $_POST['price'] == '' && $_POST['stock'] == '') {
+                    $this->view('product/add');
+                }
+                else
+                    echo "ERROR al crear";
+            }   
+        }
+        else
+             $this->view('product/add');
     }
 
     public function update($id=0, $product_name='')
