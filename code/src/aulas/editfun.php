@@ -9,10 +9,10 @@
 //$con = mysql_connect($dns, $user, $pass) or die('unable to connect');
 
 //mysql_select_db(dsql9232329,$db);
-	define('HOST','sql9.freesqldatabase.com:3306');
-	define('USER','sql9232329');
-	define('PASS','2yslepRk2g');
-	define('DB','sql9232329');
+	define('HOST','localhost');
+	define('USER','root');
+	define('PASS','');
+	define('DB','sis2-scrum');
 	
 	$con = mysqli_connect(HOST,USER,PASS,DB) or die('Unable to Connect');
 //try {
@@ -34,7 +34,7 @@ $sql = "UPDATE aula SET IdAula='$aula', asientos='$asientos', size='$size' WHERE
 //$db->mysql_query($sql);
 $result=mysqli_query($con,$sql);
 if(!$result){ echo "No se ha podido Modificar";}
-header("Location: http://localhost/aulas/listardatos.php");
+header("Location: http://localhost/2sis/src/aulas/crear.php");
 die();
 
 //}

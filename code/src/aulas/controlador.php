@@ -1,9 +1,9 @@
 <?php
 
 $db = null;
-$dns = "mysql:host=sql9.freesqldatabase.com:3306;dbname=sql9232329";
-$user = "sql9232329";
-$pass = '2yslepRk2g';
+$dns = "mysql:host=localhost;dbname=sis2-scrum";
+$user = "root";
+$pass = '';
 $data = array();
 try {
 $db = new PDO($dns, $user, $pass);
@@ -20,7 +20,7 @@ $vars = array($aula, $asientos,$size);
 //print_r($vars);
 $sql = "INSERT INTO aula(IdAula, asientos, size) VALUES (?,?, ?)";
 $db->prepare($sql)->execute($vars);
-header("Location: http://localhost/aulas/listardatos.php");
+header("Location: http://localhost/2sis/src/aulas/listardatos.php");
 die();
 }
 ?>

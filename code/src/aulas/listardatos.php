@@ -1,8 +1,8 @@
 <?php
 $db = null;
-$dns = "mysql:host=sql9.freesqldatabase.com:3306;dbname=sql9232329";
-$user = "sql9232329";
-$pass = '2yslepRk2g';
+$dns = "mysql:host=localhost;dbname=sis2-scrum";
+$user = "root";
+$pass = '';
 $data = array();
 try {
 $db = new PDO($dns, $user, $pass);
