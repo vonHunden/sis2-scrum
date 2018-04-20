@@ -68,11 +68,11 @@
       </thead>
       <tbody>
       <tr>
-        <td><?php echo $room->name_room;?>l</td>
-        <td><?php echo $room->current_chairs; ?></td>
-        <td><?php echo $room->defective_chairs; ?></td>
+        <td><?php echo $room->name_room;?></td>
+        <td><?php echo $room->current_chairs;?></td>
+        <td><?php echo $room->defective_chairs;?></td>
         <td><?php echo $room->day; ?></td>
-        <td><?php echo $room->start.' '.$room->end; ?></td>
+        <td><?php echo $room->start.'-'.$room->end;?></td>
       </tr>
       <?php }?>
     </tbody>
