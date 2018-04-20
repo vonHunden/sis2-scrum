@@ -1,1 +1,9 @@
-INSERT INTO `day`(`day`) VALUES ('Monday'), ('Tuesday'), ('Wednesday'), ('Thursday'), ('Friday'), ('Saturday')
+INSERT INTO `day`
+(`day`)
+VALUES 
+('Monday'),
+('Tuesday'),
+('Wednesday'),
+('Thursday'),
+('Friday'),
+('Saturday');

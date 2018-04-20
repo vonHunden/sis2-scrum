@@ -49,22 +49,12 @@
   </div>
 </nav>
 <div class="container">
-<form method="POST" action="/category/update">
-  <input type="hidden" value="<?php echo $data['category']->id; ?>" name="id">
-  <div class="form-group">
-    <label for="category">Editar Categoria</label>
-    <input type="text"
-           class="form-control"
-           id="category"
-           aria-describedby="categorya"
-           name="category"
-           value="<?php echo $data['category']->category; ?>">
-    <small id="categorya" class="form-text text-muted">
-      Campo para editar una categoria.
-    </small>
-  </div>
-  <button type="submit" class="btn btn-primary">ACTUALIZAR</button>
-</form>
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Error al Procesar</h4>
+  <p>Pagina de error</p>
+  <hr>
+  <p class="mb-0">Error</p>
+</div>
 </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

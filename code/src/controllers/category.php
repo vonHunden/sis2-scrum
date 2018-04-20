@@ -4,7 +4,9 @@ class Category extends Controller
 {
     public function index()
     {
-        $this->view('category/index');
+        $category = $this->model('CategoryModel'); 
+        $categories = $category->categories();
+        $this->view('category/index', ['categories' => $categories]);
     }
 
     public function template($view = '', $param = 0)
@@ -28,29 +30,33 @@ class Category extends Controller
     
     public function add($category_name = '')
     {
-        //$category_name = $_POST['category'];
+        $category_name = $_POST['category'];
         if (!empty($category_name)) {
             $category = $this->model('CategoryModel'); 
             $category->category = $category_name;
             if ($category->add()) {
-                echo "agregado correctamente";
+                header('Location: http://lemp.local');
+                exit;
             }
         } else {
-            echo "ESTA VACIO";
+            $this->view('category/error');
         }
     }
 
     public function update($id = 0, $category_name = '')
     {
+        $id = (isset($_POST['id']) ? $_POST['id'] : 0);
+        $category_name = (isset($_POST['category']) ? $_POST['category'] : '');
         if ($id != 0 && $category_name != '') {
             $category = $this->model('CategoryModel'); 
             $category->id = $id; 
             $category->category = $category_name; 
             if ($category->update()) {
-                echo "actualizado correctamente";
+                header('Location: http://lemp.local');
+                exit;
             }
         } else {
-            echo "ERROR";
+            $this->view('category/error');
         }
     }
 
@@ -70,14 +76,16 @@ class Category extends Controller
 
     public function delete($category_id = 0)
     {
+        //$category_id = (isset($_POST['id']) ? $_POST['id'] : 0);
         if ($category_id != 0) {
             $category = $this->model('CategoryModel'); 
             $category->id = $category_id;
             if ($category->delete()) {
-                echo "eliminado correctamente";
+                header('Location: http://lemp.local');
+                exit;
             }
         } else {
-            echo "ERROR category_id no brindado";
+            $this->view('category/error');
         }
     }
 
@@ -87,9 +95,9 @@ class Category extends Controller
             $category = $this->model('CategoryModel'); 
             $category->id = $category_id;
             $category = $category->edit();
-            print_r($category);
+            return $category;
         } else {
-            echo "ERROR category_id no brindado";
+            $this->view('category/error');
         }
     }
 }

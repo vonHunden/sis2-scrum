@@ -11,6 +11,20 @@ class CategoryModel extends Model
         return $this->db;
     }
 
+    public function categories()
+    {
+        $sql = 'SELECT id, category FROM '.$this->table;
+        try {
+            $categories = $this->db->query($sql)->fetchAll(
+                PDO::FETCH_CLASS,
+                'Category'
+            );
+            return $categories;
+        } catch (PDOException $e) {
+            throw $e;
+        }
+    }
+
     public function add()
     {
         $sql = 'INSERT INTO '.$this->table.' (category) VALUES (?)';

@@ -25,10 +25,9 @@
           Categoria
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="categoria.php">Listar</a>
-          <a class="dropdown-item" href="#">Agregar</a>
+          <a class="dropdown-item" href="/category">Listar</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Editar</a>
+          <a class="dropdown-item" href="/category/template/add">Agregar</a>
         </div>
       </li>
       <li class="nav-item dropdown">
