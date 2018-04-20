@@ -10,7 +10,7 @@
     </head>
     <body>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href=<?php echo _HOME."";?>>Limpieza</a>
+      <a class="navbar-brand" href="#">Limpieza</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
@@ -18,17 +18,16 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href=<?php echo _HOME."";?>>Inicio <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Incio <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Categoria
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href=<?php echo _HOME."/category";?>>Listar</a>
+          <a class="dropdown-item" href="categoria.php">Listar</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item"
-             href=<?php echo _HOME."/category/template/add";?>>Agregar</a>
+          <a class="dropdown-item" href="/category/template/add">Agregar</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -50,7 +49,7 @@
   </div>
 </nav>
 <div class="container">
-<form method="POST" action=<?php echo _HOME."/category/update";?>>
+<form method="POST" action="/category/update">
   <input type="hidden" value="<?php echo $data['category']->id; ?>" name="id">
   <div class="form-group">
     <label for="category">Editar Categoria</label>

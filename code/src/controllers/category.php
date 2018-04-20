@@ -35,7 +35,7 @@ class Category extends Controller
             $category = $this->model('CategoryModel'); 
             $category->category = $category_name;
             if ($category->add()) {
-                header('Location: '._HOME);
+                header('Location: http://lemp.local');
                 exit;
             }
         } else {
@@ -52,7 +52,7 @@ class Category extends Controller
             $category->id = $id; 
             $category->category = $category_name; 
             if ($category->update()) {
-                header('Location: '._HOME);
+                header('Location: http://lemp.local');
                 exit;
             }
         } else {
@@ -81,7 +81,7 @@ class Category extends Controller
             $category = $this->model('CategoryModel'); 
             $category->id = $category_id;
             if ($category->delete()) {
-                header('Location: '._HOME);
+                header('Location: http://lemp.local');
                 exit;
             }
         } else {

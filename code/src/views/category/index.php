@@ -10,7 +10,7 @@
     </head>
     <body>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href=<?php echo _HOME."";?>>Limpieza</a>
+      <a class="navbar-brand" href="#">Limpieza</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
@@ -18,7 +18,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href=<?php echo _HOME."";?>>Inicio <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="index.php">Incio <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Aulas</a>
@@ -28,10 +28,9 @@
           Categoria
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href=<?php echo _HOME."/category";?>>Listar</a>
+          <a class="dropdown-item" href="/category">Listar</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item"
-             href=<?php echo _HOME."/category/template/add";?>>Agregar</a>
+          <a class="dropdown-item" href="/category/template/add">Agregar</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -71,12 +70,12 @@
       <tr>
         <td><?php echo $category->category; ?></td>
         <td>
-          <a href=<?php echo _HOME."/category/template/edit/".$category->id; ?>>
+          <a href="/category/template/edit/<?php echo $category->id; ?>">
             <span class="badge badge-info">editar</span>
           </a>
         </td>
         <td>
-          <a href=<?php echo _HOME."/category/delete/".$category->id; ?>>
+          <a href="/category/delete/<?php echo $category->id; ?>">
             <span class="badge badge-danger">eliminar</span>
           </a>
         </td>
